@@ -10,7 +10,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
+  padding: 25px 10%;
   border-bottom: 0.5px solid #e0e0e0;
   box-shadow: 2px 1px 2px #eee;
   box-sizing: border-box;
@@ -66,9 +66,9 @@ a:hover {
 }
 
 .landing-img {
-  width: 60%;
+  width: 55%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 70px;
 
   margin-bottom: 50px;
 }
