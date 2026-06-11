@@ -1,98 +1,22 @@
 .container {
   display: flex;
+  min-height: 100vh;
   font-family: 'Inter', serif;
   flex-direction: column;
-  height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(57, 149, 229, 0.12), transparent 35%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+  color: #0f172a;
 }
 
-.head {
+.container > div:last-child {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 10%;
-  border-bottom: 0.5px solid #e0e0e0;
-  box-shadow: 2px 1px 2px #eee;
-  box-sizing: border-box;
+  justify-content: center;
+  padding: 8px 20px 56px;
 }
 
-.logo-container {
-  font-size: 24px;
-  font-weight: bold;
-  /* aligned to the left of the header */
-  display: flex;
-  align-items: left;
-}
-
-.logo {
-  height: 15px;
-  width: auto;
-}
-
-.nav {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.nav-links {
-  color: #535353;
-  font-size: 18px;
-  margin-right: 0px;
-}
-
-nav a {
-  color: #666;
-  font-weight: 400;
-  font-size: 0.9rem;
-  text-decoration: none;
-  padding: 10px;
-  margin: 10px;
-}
-
-a:hover {
-  color: #3995e5;
-  transition: 0.3s;
-}
-
-.spacer {
-  color: gray;
-}
-
-.landing {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.landing-img {
-  width: 55%;
-  height: auto;
-  margin-top: 70px;
-
-  margin-bottom: 50px;
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: 400;
-  margin-top: 20px;
-  margin-bottom: 0px;
-}
-
-p {
-  font-size: 20px;
-  color: #555;
-  margin-top: 10px;
-}
-
-.signup-btn {
-  background-color: #3995e5;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
+.cards-container {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 24px;
 }

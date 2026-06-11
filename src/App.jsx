@@ -1,38 +1,18 @@
 import './App.css'
+import Header from './Components/Header/Header'
+import Footer from './Components/Footer/Footer'
+import Card from './Components/Card/Card'
 
 function App() {
+  let cards = [1, 2, 3, 4, 5, 6]
   return (
     <div className="container">
-      <header className="head">
-        <div className="logo-container">
-          <img
-            className="logo"
-            src="https://zerodha.com/static/images/logo.svg"
-            alt="Zerodha Logo"
-          ></img>
-        </div>
-        <div className="nav">
-          <nav className="nav-links">
-            <a href="">Sign Up</a>
-            <a href="">About</a>
-            <a href="">Products</a>
-            <a href="">Support</a>
-            <a href="">Pricing</a>
-          </nav>
-        </div>
-      </header>
-      <div className="landing">
-        <img
-          className="landing-img"
-          src="https://zerodha.com/static/images/landing.svg"
-          alt="Zerodha Landing"
-        ></img>
-
-        <h2> Invest in everything </h2>
-        <p>
-          Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.
-        </p>
-        <button className="signup-btn">Sign Up for Free</button>
+      <Header />
+      <Footer />
+      <div className="cards-container">
+        {cards.map((card) => (
+          <Card key={card} />
+        ))}
       </div>
     </div>
   )
