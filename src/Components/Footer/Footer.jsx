@@ -1,6 +1,13 @@
 import './Footer.css'
+// import { useState } from 'react'
 
 function Footer() {
+  // const [counter, setCounter] = useState([0])
+
+  // function add() {
+  //   setCounter([...counter, counter[counter.length - 1] + 1])
+  // }
+
   return (
     <div className="landing">
       <img
@@ -12,6 +19,7 @@ function Footer() {
       <h2> Invest in everything </h2>
       <p>Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.</p>
       <button className="signup-btn">Sign Up for Free</button>
+      {/* <button onClick={add}> increment </button> */}
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import './App.css'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
-import Card from './Components/Card/Card'
+// import Card from './Components/Card/Card'
+import Products from './Components/Products/Products'
 
 function App() {
   let cards = [1, 2, 3, 4, 5, 6]
@@ -9,11 +10,7 @@ function App() {
     <div className="container">
       <Header />
       <Footer />
-      <div className="cards-container">
-        {cards.map((card) => (
-          <Card key={card} />
-        ))}
-      </div>
+      <Products />
     </div>
   )
 }

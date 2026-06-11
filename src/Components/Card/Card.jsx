@@ -1,24 +1,22 @@
 import './Card.css'
 
-function Card() {
+function Card({ product }) {
+  const { id, name, price, description, image, category } = product
+  
   return (
     <div className="card">
-      <img
-        src="https://dineout-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_600,h_400/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/1/25/24344c96-927e-4b02-bbc6-48ba220d97d7_image0a89957f9b4fa4ae1ad460756ca6b22ad.JPG"
-        className="card-img"
-        alt="Restaurant"
-      />
+      <img src={image} className="card-img" alt={name} />
       <div className="card-body">
         <div className="card-1">
           <div className="card-1-left">
-            <p className="card-address">Address</p>
-            <p className="card-price">Price</p>
+            <p className="card-address">{name}</p>
+            <p className="card-price">${price.toFixed(2)}</p>
           </div>
           <span className="card-badge">Open</span>
         </div>
         <div className="card-grid">
-          <p className="card-text">Text1</p>
-          <p className="card-text">Text2</p>
+          <p className="card-text">{description}</p>
+          <p className="card-text">{category}</p>
         </div>
       </div>
     </div>

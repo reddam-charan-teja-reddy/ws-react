@@ -1,0 +1,10 @@
+.products-container {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
