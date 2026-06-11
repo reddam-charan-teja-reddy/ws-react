@@ -10,7 +10,9 @@ function App() {
     <div className="container">
       <Header />
       <Footer />
-      <Products />
+      <main className="content">
+        <Products />
+      </main>
     </div>
   )
 }

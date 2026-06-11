@@ -30,15 +30,17 @@ function Products() {
   }
 
   return (
-    <div>
-      <h1>Products</h1>
-      <button onClick={showProducts}>Fetch Products</button>
+    <section className="products-section">
+      <div className="products-actions">
+        <h1>Products</h1>
+        <button onClick={showProducts}>Fetch Products</button>
+      </div>
       <div className="products-container">
         {products.map((product) => (
           <Card key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

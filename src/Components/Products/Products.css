@@ -1,10 +1,27 @@
-.products-container {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 24px;
+.products-section {
+  display: block;
 }
 
-button {
+.products-section > h1 {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+}
+
+.products-actions {
+  margin-bottom: 16px;
+}
+
+.products-actions button {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: white;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: start;
 }

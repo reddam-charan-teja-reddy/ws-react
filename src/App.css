@@ -9,14 +9,18 @@
   color: #0f172a;
 }
 
-.container > div:last-child {
-  display: flex;
-  justify-content: center;
-  padding: 8px 20px 56px;
+/* main content area - centers and constrains width */
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  flex: 1 0 auto;
 }
 
-.cards-container {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 24px;
+/* footer area stays at the bottom */
+.container > footer,
+.container > div:last-child {
+  padding: 8px 20px 56px;
 }
