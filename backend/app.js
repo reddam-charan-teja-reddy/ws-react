@@ -1,4 +1,6 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
 const productsData = require("./productsData");
 const cors = require("cors");
 
@@ -16,12 +18,55 @@ app.use(
   }),
 );
 
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(
+      process.env.MONGODB_URI || "mongodb://localhost:27017/productsDB",
+    );
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+};
+
+connectToDatabase();
+
 app.get("/", (req, res) => {
   res.send("Hello world!");
 });
 
 app.get("/products", (req, res) => {
   res.json(productsData);
+});
+
+app.get("/product", (req, res) => {
+  const body = req.body;
+  const productId = body.productId;
+
+  const product = productsData.find((p) => p.id === productId);
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ error: "Product not found" });
+  }
+});
+
+app.get("/products/:category", (req, res) => {
+  const category = req.params.category;
+  const filteredProducts = productsData.filter(
+    (product) => product.category === category,
+  );
+  res.json(filteredProducts);
+});
+
+app.post("/products", (req, res) => {
+  const newProduct = req.body;
+  if (!newProduct.name || !newProduct.category || !newProduct.price) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+  newProduct.id = productsData.length + 1; // Simple ID generation
+  productsData.push(newProduct);
+  res.status(201).json(newProduct);
 });
 
 app.listen(port, () => {
