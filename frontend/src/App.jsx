@@ -5,7 +5,9 @@ import Footer from './Components/Footer/Footer'
 import Products from './Components/Products/Products'
 
 function App() {
-  let cards = [1, 2, 3, 4, 5, 6]
+  // let toogleMode = () => {
+  //   document.body.classList.toggle('dark-mode')
+  // }
   return (
     <div className="container">
       <Header />
