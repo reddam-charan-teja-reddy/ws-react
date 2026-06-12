@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const { Product } = require("./models");
+
 const productsData = require("./productsData");
 const cors = require("cors");
 
@@ -28,8 +30,6 @@ const connectToDatabase = async () => {
     console.error("Error connecting to MongoDB:", error);
   }
 };
-
-connectToDatabase();
 
 app.get("/", (req, res) => {
   res.send("Hello world!");
@@ -61,16 +61,12 @@ app.get("/products/:category", (req, res) => {
 
 app.post("/products", (req, res) => {
   const newProduct = req.body;
-  if (!newProduct.name || !newProduct.category || !newProduct.price) {
-    return res.status(400).json({ error: "Missing required fields" });
-  }
-  newProduct.id = productsData.length + 1; // Simple ID generation
-  productsData.push(newProduct);
-  res.status(201).json(newProduct);
+  
 });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  connectToDatabase();
 });
 
 module.exports = app;
