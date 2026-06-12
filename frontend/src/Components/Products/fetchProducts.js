@@ -1,6 +1,8 @@
+import { API_BASE_URL } from '../../config'
+
 const fetchProducts = async () => {
   try {
-    const response = await fetch('http://localhost:3000/products')
+    const response = await fetch(`${API_BASE_URL}/products` || 'http://localhost:3000/products')
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
