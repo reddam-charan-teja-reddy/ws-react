@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const { bcrypt } = require("bcrypt");
 
 const { Product } = require("./models");
 
@@ -61,7 +62,24 @@ app.get("/products/:category", (req, res) => {
 
 app.post("/products", (req, res) => {
   const newProduct = req.body;
-  
+});
+
+app.post("/register", async (req, res) => {
+  const { username, password } = req.body;
+
+  // Check if the user already exists
+  const existingUser = await User.findOne({ username });
+  if (existingUser) {
+    return res.status(400).json({ error: "Username already exists" });
+  }
+
+  // Hash the password
+  const hashedPassword = await bcrypt.hash(password, 10);
+  // Create a new user
+  const newUser = new User({ username, password: hashedPassword });
+  await newUser.save();
+
+  res.status(201).json({ message: "User registered successfully" });
 });
 
 app.listen(port, () => {
@@ -70,3 +88,7 @@ app.listen(port, () => {
 });
 
 module.exports = app;
+
+
+
+
